@@ -1,0 +1,17 @@
+{
+    "name": "keithdrader/rahna-facilitator",
+    "description": "A dashboard plugin for RAH Anesthesiologists daily availability",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Keith Drader",
+            "email": "kdrader@protonmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload":{
+        "psr-4": {"Inc\\": "./inc"}
+    }
+}
