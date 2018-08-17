@@ -5,7 +5,7 @@
       <paths name="amagas_rahna">
         <serverdata>
           <mappings>
-            <mapping deploy="/wordpress/wp-content/plugins/rahna-facilitator" local="$PROJECT_DIR$" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

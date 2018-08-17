@@ -8,6 +8,10 @@
  Author URI:   mailto://kdrader@protonmail.com
  */
 
+//
+
+
+/*defined('poopy');*/
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
 if (file_exists(dirname(__FILE__) . '/vendor/autoload.php')) {
