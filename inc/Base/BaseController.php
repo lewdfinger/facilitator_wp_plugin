@@ -1,10 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: keith
- * Date: 8/16/2018
- * Time: 1:03 PM
- */
+
+/* @package RahnaPlugin */
 
 namespace Inc\Base;
 

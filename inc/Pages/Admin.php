@@ -1,29 +1,69 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: keith
- * Date: 8/15/2018
- * Time: 8:38 PM
+ * @package  RahnaPlugin
  */
-
 namespace Inc\Pages;
 
 use \Inc\Base\BaseController;
+use \Inc\Api\SettingsApi;
 
-class Admin extends BaseController{
+/**
+ *
+ */
+class Admin extends BaseController
+{
+    public $settings;
 
-    function register(){
-        add_action( 'admin_menu', array($this, 'add_admin_pages' ));
+    public $pages = array();
+
+    public $subpages = array();
+
+    public function __construct()
+    {
+        $this->settings = new SettingsApi();
+
+        $this->pages = array(
+            array(
+                'page_title' => 'RAHNA',
+                'menu_title' => 'Facilitator',
+                'capability' => 'manage_options',
+                'menu_slug' => 'rahna_facilitator',
+                'callback' => function() { echo '<h1>RAHNA Facilitator</h1>'; },
+                'icon_url' => 'dashicons-store',
+                'position' => 110
+            )
+        );
+
+        $this->subpages = array(
+            array(
+                'parent_slug' => 'rahna_facilitator',
+                'page_title' => 'Custom Post Types',
+                'menu_title' => 'CPT',
+                'capability' => 'manage_options',
+                'menu_slug' => 'facilitator_cpt',
+                'callback' => function() { echo '<h1>CPT Manager</h1>'; }
+            ),
+            array(
+                'parent_slug' => 'rahna_facilitator',
+                'page_title' => 'Custom Taxonomies',
+                'menu_title' => 'Taxonomies',
+                'capability' => 'manage_options',
+                'menu_slug' => 'facilitator_taxonomies',
+                'callback' => function() { echo '<h1>Taxonomies Manager</h1>'; }
+            ),
+            array(
+                'parent_slug' => 'rahna_facilitator',
+                'page_title' => 'Custom Widgets',
+                'menu_title' => 'Widgets',
+                'capability' => 'manage_options',
+                'menu_slug' => 'facilitator_widgets',
+                'callback' => function() { echo '<h1>Widgets Manager</h1>'; }
+            )
+        );
     }
 
-    function add_admin_pages() {
-       add_menu_page( 'Facilitator Options', 'Facilitator', 'manage_options',
-           'rahna_facilitator', array($this, 'admin_index'));
+    public function register()
+    {
+        $this->settings->addPages( $this->pages )->withSubPage( 'Dashboard' )->addSubPages( $this->subpages )->register();
     }
-
-    function admin_index() {
-       require_once $this->plugin_path . 'templates/admin.php';
-    }
-
-
 }

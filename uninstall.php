@@ -1,10 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Keith
- * Date: 8/15/2018
- * Time: 8:57 AM
- */
+
+/* @package RahnaPlugin */
 
 if (! defined( 'WP_UNINSTALL_PLUGIN')) {
         die('Dum Dum');
